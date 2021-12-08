@@ -6,6 +6,7 @@ prepare-day:
 ifndef DAY
 	$(error Must specify DAY)
 endif
+	@if [ -d day_$(DAY) ]; then echo "Day $(DAY) exists already!"; false; fi
 	@mkdir -p day_$(DAY)
 	@cp day_template.py day_$(DAY)/day_$(DAY).py
 	@sed -i 's/XXX/$(DAY)/g' day_$(DAY)/day_$(DAY).py
